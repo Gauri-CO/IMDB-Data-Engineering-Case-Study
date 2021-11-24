@@ -9,7 +9,6 @@ import lxml
 from datetime import datetime
 import re
 
-
 # Control logging levels:
 logging.basicConfig(level=logging.INFO)
 
@@ -53,8 +52,10 @@ def extractData():
     purl = 'https://www.imdb.com/feature/genre?ref_=fn_asr_ge'
 
     try:
-        # Extract data from HTML webpage
+
+        logging.info("################ Web Scraping Process Started ############")
         logging.info(f"Processing Started at {datetime.now()}")
+        # Extract data from HTML webpage
         ptext = requests.get(purl).text
 
         # Create BeautifulSoup object to parse through HTML document
@@ -160,13 +161,13 @@ def extractData():
             fact_dict = {'Date': date_val, 'Movie_id': movie_id, 'Genre_id': initial, 'Rank': rank,
                          'Name': name,
                          'Year': year,
-                         'Certificate': certificate_dict[certificate],
-                         'Runtime': runtime, 'Rating': rating, 'Summary': summary,'Director': director_dict[director],
+                         'Certificate_Id': certificate_dict[certificate],
+                         'Runtime': runtime, 'Rating': rating, 'Summary': summary, 'Director_Id': director_dict[director],
                          'Stars': role_dict['Stars'], 'Votes': info_dict['Votes']}
 
-            genre_dict = {'Genre_id': initial, 'Genre': genre, 'URL': url}
+            genre_dict = {'Genre_Id': initial, 'Genre': genre, 'URL': url}
 
-            cert_dic = {'Certificate': certificate_dict[certificate], 'Certificate_Code': certificate}
+            cert_dic = {'Certificate_Id': certificate_dict[certificate], 'Certificate_Code': certificate}
 
             dir_dict = {'Director_Id': director_dict[director], 'Director': director}
 
@@ -189,7 +190,7 @@ def extractData():
     dataframe.to_csv(path_or_buf='imdb_movies_stage_data.csv.gz', compression="gzip")
 
     # Creating Fact Dataset
-    fact_header = ['Date', 'Movie_id', 'Genre_id', 'Rank', 'Name', 'Year', 'Certificate',
+    fact_header = ['Date', 'Movie_id', 'Genre_id', 'Rank', 'Name', 'Year', 'Certificate_Id',
                    'Runtime', 'Rating', 'Summary',
                    'Director_Id', 'Stars', 'Votes']
     fact_dataframe = pd.DataFrame(data=fact_movie_list, columns=fact_header)
@@ -197,17 +198,17 @@ def extractData():
     fact_dataframe.to_csv(path_or_buf='fact_movies_data.csv.gz', compression="gzip")
 
     # Creating Genre Dimension Dataset
-    genre_header = ['Genre_id', 'Genre', 'URL']
+    genre_header = ['Genre_Id', 'Genre', 'URL']
     genre_dataframe = pd.DataFrame(data=genre_list, columns=genre_header)
     genre_dataframe = genre_dataframe.drop_duplicates()
-    genre_dataframe = genre_dataframe.set_index(['Genre_id'], drop=True)
+    genre_dataframe = genre_dataframe.set_index(['Genre_Id'], drop=True)
     genre_dataframe.to_csv(path_or_buf='genre_data.csv.gz', compression="gzip")
 
     # Creating Genre Dimension Dataset
-    certificate_header = ['Certificate', 'Certificate_Code']
+    certificate_header = ['Certificate_Id', 'Certificate_Code']
     certificate_dataframe = pd.DataFrame(data=certificate_list, columns=certificate_header)
     certificate_dataframe = certificate_dataframe.drop_duplicates()
-    certificate_dataframe = certificate_dataframe.set_index(['Certificate'], drop=True)
+    certificate_dataframe = certificate_dataframe.set_index(['Certificate_Id'], drop=True)
     certificate_dataframe.to_csv(path_or_buf='certificate_data.csv.gz', compression="gzip")
 
     # Creating Director Dimension Dataset
