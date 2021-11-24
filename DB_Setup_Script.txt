@@ -1,0 +1,55 @@
+create table if not exists director_dim(
+
+	director_id INTEGER,
+	director_name VARCHAR(100),
+	rec_mdfy_dtm TIMESTAMP DEFAULT CURRENT_TIMESTAMP,	
+	PRIMARY KEY (director_id)
+);
+
+
+create table if not exists genre_dim(
+
+	genre_id INTEGER,
+	genre_name VARCHAR(100),
+	genre_url VARCHAR(200),
+	rec_mdfy_dtm TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (genre_id)
+);
+
+
+create table if not exists certificate_dim(
+
+	certificate_id INTEGER,
+	certificate_code VARCHAR(100),
+	rec_mdfy_dtm TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (certificate_id)
+);
+
+
+create table if not exists imdb_movies_fact(
+
+	rank INTEGER,
+	date INTEGER,
+	movie_id VARCHAR(200),
+	genre_id  INTEGER,
+	movie_title VARCHAR(200),
+	year VARCHAR(10),
+	certificate_id INTEGER,
+	runtime VARCHAR(20),
+	rating VARCHAR(20),
+	summary VARCHAR(600),
+	director_id INTEGER,
+	stars VARCHAR(300),
+	votes VARCHAR(20),
+	rec_mdfy_dtm TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (movie_id),
+	CONSTRAINT fk_director FOREIGN KEY(director_id) REFERENCES director_dim(director_id),
+	CONSTRAINT fk_genre FOREIGN KEY(genre_id) REFERENCES genre_dim(genre_id),
+	CONSTRAINT fk_certificate FOREIGN KEY(certificate_id) REFERENCES certificate_dim(certificate_id)
+);
+
+
+
+
+
+
