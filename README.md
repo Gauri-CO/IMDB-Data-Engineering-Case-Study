@@ -20,6 +20,9 @@ Database is Postgres
 2. Develop an ETL pipeline that extracts raw data, performs necessary transformations and loads into
 database.
 
+
+# Assumptions
+
 # Project Deliverables
 
 I. Python Source Code (The source code files are uploaded in the repository)
