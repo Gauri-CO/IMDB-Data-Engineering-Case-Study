@@ -55,7 +55,16 @@ IV. System Architecture:
   ![Untitled Diagram drawio](https://user-images.githubusercontent.com/75573079/143365567-b06d82c8-7d99-4731-bd0e-eab34990998b.png)
 
  V. Query Resultset from Postgres:
-   ![image](https://user-images.githubusercontent.com/75573079/143440477-bd5361d2-71b5-4cef-9f25-8f06d9893477.png)
+   
+select rank , movie_title , genre_name ,director_name , year,certificate_code, genre_url
+from imdb_movies_fact  inner join genre_dim on imdb_movies_fact.genre_id=genre_dim.genre_id
+inner join certificate_dim on imdb_movies_fact.certificate_id=certificate_dim.certificate_id
+inner join director_dim on imdb_movies_fact.director_id=director_dim.director_id
+order by  genre_name desc,rank;
+
+   
+   
+ ![image](https://user-images.githubusercontent.com/75573079/143441597-ccf6249d-0450-47be-bf6c-4dd90b2f3cc4.png)
 
   
   
