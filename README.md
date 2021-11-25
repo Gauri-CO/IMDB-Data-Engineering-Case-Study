@@ -54,7 +54,9 @@ IV. System Architecture:
   
   ![Untitled Diagram drawio](https://user-images.githubusercontent.com/75573079/143365567-b06d82c8-7d99-4731-bd0e-eab34990998b.png)
 
-  
+ V. Query Resultset from Postgres:
+   ![image](https://user-images.githubusercontent.com/75573079/143440477-bd5361d2-71b5-4cef-9f25-8f06d9893477.png)
+
   
   
 
