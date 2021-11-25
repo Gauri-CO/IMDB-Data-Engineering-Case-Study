@@ -103,7 +103,7 @@ def extractData():
             year_temp = content.find('span', class_='lister-item-year text-muted unbold').text.replace("(", "").replace(
                 ")",
                 "").strip()
-            year = re.sub('[^a-zA-Z0-9 \n\.]', '', year_temp)
+            year = re.sub('[^a-zA-Z0-9 \.]', '', year_temp)
             if re.match('\d\d\d\d', year):
                 year = re.findall('\d\d\d\d', year)[0]
             else:
@@ -119,7 +119,7 @@ def extractData():
             runtime = checkNone(content.find('span', class_='runtime')).strip()
             rating = checkNone(content.strong).strip()
             summary_temp = content.find_all('p', class_='text-muted')[1].text.strip()[0:500]
-            summary = re.sub('[^a-zA-Z0-9 \n\.]', '', summary_temp)
+            summary = re.sub('[^a-zA-Z0-9 \.]', '', summary_temp)
 
             if genre.strip() == "Superhero":
                 text_crew = content.find_all('p', class_="text-muted text-small")[1]
@@ -131,7 +131,7 @@ def extractData():
                 if len(val) > 0:
                     key = val.split(":")[0].strip()
                     value_temp = val.split(":")[1].strip()
-                    value = re.sub('[^a-zA-Z0-9 \n,\.]', '', value_temp)
+                    value = re.sub('[^a-zA-Z0-9 \.]', '', value_temp)
                     role_dict[key] = value.replace(",", "|")
 
             director = role_dict['Director']
