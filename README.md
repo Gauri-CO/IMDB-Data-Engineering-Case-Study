@@ -11,11 +11,11 @@ associated metadata from the list of "Top Rated English Movies by Genre".
 Link : https://www.imdb.com/feature/genre?ref_=fn_asr_ge
 
 **Design Constraints**
-Language is python
+-> Language is python
 
-File type is compressed csv
+-> File type is compressed csv
 
-Database is Postgres
+-> Database is Postgres
 
 **Requirements**
 1. Develop an ETL solution that scrapes the top 50 movies of each genre into local raw data lake.
