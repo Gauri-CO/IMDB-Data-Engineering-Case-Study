@@ -29,9 +29,9 @@ database.
    WebScraping.py - This script peforms the task of web scraping  by using requests and BeautifulSoup libraries.
    The output of this script are four transformed files in compressed csv format which are saved in local data lake.
    
-   fact_movies_data.csv.gz
-   genre_data.csv.gz
-   director_data.csv.gz
+   fact_movies_data.csv.gz, 
+   genre_data.csv.gz, 
+   director_data.csv.gz, 
    certificate_data.csv.gz
    
    DB_DataLoad_Genre_Dim.py - Load genre_data.csv.gz to target dimension table GENRE_DIM.
