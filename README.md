@@ -12,7 +12,9 @@ Link : https://www.imdb.com/feature/genre?ref_=fn_asr_ge
 
 **Design Constraints**
 Language is python
+
 File type is compressed csv
+
 Database is Postgres
 
 **Requirements**
@@ -22,7 +24,7 @@ database.
 
 **Project Deliverables**
 
-I. Python Source Code (The source code files are uploaded in the repository)
+**I. Python Source Code (The source code files are uploaded in the repository)**
 
    WebScraping.py - This script peforms the task of web scraping  by using requests and BeautifulSoup libraries.
    The output of this script are four transformed files in compressed csv format which are saved in local data lake.
@@ -44,17 +46,17 @@ I. Python Source Code (The source code files are uploaded in the repository)
   
    Validation.py - Testing and Validation Script
   
-II. Docker For Postgres : Docker_Postgres_Setup.docx
+**II. Docker For Postgres : Docker_Postgres_Setup.docx**
   
-III. ER Diagram:
+**III. ER Diagram:**
   
   ![IMDb_ER_Diagram drawio (1)](https://user-images.githubusercontent.com/75573079/143365498-08deb780-c664-4437-b95b-f4027b76f203.png)
 
-IV. System Architecture:
+**IV. System Architecture:**
   
   ![Untitled Diagram drawio](https://user-images.githubusercontent.com/75573079/143365567-b06d82c8-7d99-4731-bd0e-eab34990998b.png)
 
- V. Query Resultset from Postgres:
+ **V. Query Resultset from Postgres:**
    
 select rank , movie_title , genre_name ,director_name , year,certificate_code, genre_url
 from imdb_movies_fact  inner join genre_dim on imdb_movies_fact.genre_id=genre_dim.genre_id
