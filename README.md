@@ -3,24 +3,24 @@ Develop an ETL pipeline that extracts the top 50 movies and associated metadata 
 
 ![IMDB_Image](https://user-images.githubusercontent.com/75573079/143353712-7a045a8e-af12-4888-a88d-394e9278f2e2.jpg)
 
-**Project Objective
+**Project Objective**
 To acquire and operationalize data relating to the movie industry in the U.S.
 As part of this project I architected and developed an ETL pipeline that extracts the top 50 movies and
 associated metadata from the list of "Top Rated English Movies by Genre".
 
 Link : https://www.imdb.com/feature/genre?ref_=fn_asr_ge
 
-**Design Constraints
+**Design Constraints**
 Language is python
 File type is compressed csv
 Database is Postgres
 
-**Requirements
+**Requirements**
 1. Develop an ETL solution that scrapes the top 50 movies of each genre into local raw data lake.
 2. Develop an ETL pipeline that extracts raw data, performs necessary transformations and loads into
 database.
 
-**Project Deliverables
+**Project Deliverables**
 
 I. Python Source Code (The source code files are uploaded in the repository)
 
