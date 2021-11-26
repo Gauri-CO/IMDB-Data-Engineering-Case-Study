@@ -26,25 +26,25 @@ database.
 
 **I. Python Source Code (The source code files are uploaded in the repository)**
 
-   WebScraping.py - This script peforms the task of web scraping  by using requests and BeautifulSoup libraries.
-   The output of this script are four transformed files in compressed csv format which are saved in local data lake.
+   -> WebScraping.py - This script peforms the task of web scraping  by using requests and BeautifulSoup libraries.
+                       The output of this script are four transformed files in compressed csv format which are saved in local data lake.
    
    fact_movies_data.csv.gz, 
    genre_data.csv.gz, 
    director_data.csv.gz, 
    certificate_data.csv.gz
    
-   DB_DataLoad_Genre_Dim.py - Load genre_data.csv.gz to target dimension table GENRE_DIM.
+   -> DB_DataLoad_Genre_Dim.py - Load genre_data.csv.gz to target dimension table GENRE_DIM.
    
-   DB_DataLoad_Certificate_Dim.py - Load certificate_data.csv.gz to target dimension table CERTIFICATE_DIM.
+   -> DB_DataLoad_Certificate_Dim.py - Load certificate_data.csv.gz to target dimension table CERTIFICATE_DIM.
    
-   DB_DataLoad_Director_Dim.py - Load director_data.csv.gz to target dimension table DIRECTOR_DIM.
+   -> DB_DataLoad_Director_Dim.py - Load director_data.csv.gz to target dimension table DIRECTOR_DIM.
    
-   DB_DataLoad_Fact.py - Load fact_movies_data.csv.gz to target FACT table IMDB_MOVIES_FACT.
+   -> DB_DataLoad_Fact.py - Load fact_movies_data.csv.gz to target FACT table IMDB_MOVIES_FACT.
    
-   Logging is available for all five scripts in Logfile.txt uploaded in repository
+   -> Logging is available for all five scripts in Logfile.txt uploaded in repository
   
-   Validation.py - Testing and Validation Script
+   -> Validation.py - Testing and Validation Script
   
 **II. Docker For Postgres :**
 Docker_Postgres_Setup.docx
