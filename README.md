@@ -46,7 +46,8 @@ database.
   
    Validation.py - Testing and Validation Script
   
-**II. Docker For Postgres : Docker_Postgres_Setup.docx**
+**II. Docker For Postgres :**
+Docker_Postgres_Setup.docx
   
 **III. ER Diagram:**
   
