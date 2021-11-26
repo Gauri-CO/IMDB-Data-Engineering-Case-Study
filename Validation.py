@@ -4,12 +4,21 @@ import logging
 import psycopg2
 import gzip
 from datetime import datetime
+import yaml
 
 # Control logging levels:
 logging.basicConfig(level=logging.INFO)
 
 # Extract Current Date for Processing
 date = int(str(datetime.now())[0:11].replace("-", ""))
+
+# Read config.yaml file for extracting connection parameters
+def load_config():
+    with open("config.yaml", "r") as yamlfile:
+        try:
+            return yaml.load(yamlfile, Loader=yaml.FullLoader)
+        except yaml.YAMLError as e:
+            logging.error(f"Error : {e}")
 
 
 # Function to test if file exists or not
@@ -42,9 +51,18 @@ def fileCount(filename):
 
 # Function to validate file and table count
 def countCheck(**kwargs):
+
+    # Extract the database connection parameters from config.yaml file
+    config = load_config()
+    host = config[0]["host"]
+    port = config[0]["port"]
+    dbname = config[0]["dbname"]
+    user = config[0]["user"]
+    password = config[0]["password"]
+
     try:
         logging.info("### Count Check Validation ###")
-        conn = psycopg2.connect("host='localhost' port='5432' dbname='postgres' user='postgres' password='Raju#12345'")
+        conn = psycopg2.connect(f"host={host} port={port} dbname={dbname} user={user} password={password}")
         cur = conn.cursor()
         for table, file in kwargs.items():
             if table == "imdb_movies_fact":

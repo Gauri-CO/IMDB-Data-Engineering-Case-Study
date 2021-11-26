@@ -1,0 +1,73 @@
+1. WebScraping
+
+C:\Users\gauri\pythonProject\IMDBRatingProject\venv\Scripts\python.exe C:/Users/gauri/pythonProject/IMDBRatingProject/WebScraping.py
+INFO:root:################ Web Scraping Process Started ############
+INFO:root:Processing Started at 2021-11-24 19:17:51.393514
+INFO:root:Total movies processed for Genre : Action:50
+INFO:root:Total movies processed for Genre : Adventure:50
+INFO:root:Total movies processed for Genre : Animation:50
+INFO:root:Total movies processed for Genre : Biography:50
+INFO:root:Total movies processed for Genre : Comedy:50
+INFO:root:Total movies processed for Genre : Crime:50
+INFO:root:Total movies processed for Genre : Documentary:50
+INFO:root:Total movies processed for Genre : Drama:50
+INFO:root:Total movies processed for Genre : Family:50
+INFO:root:Total movies processed for Genre : Fantasy:50
+INFO:root:Total movies processed for Genre : Film Noir:50
+INFO:root:Total movies processed for Genre : History:50
+INFO:root:Total movies processed for Genre : Horror:50
+INFO:root:Total movies processed for Genre : Music:50
+INFO:root:Total movies processed for Genre : Musical:50
+INFO:root:Total movies processed for Genre : Mystery:50
+INFO:root:Total movies processed for Genre : Romance:50
+INFO:root:Total movies processed for Genre : Sci-Fi:50
+INFO:root:Total movies processed for Genre : Short Film:50
+INFO:root:Total movies processed for Genre : Sport:50
+INFO:root:Total movies processed for Genre : Superhero:50
+INFO:root:Total movies processed for Genre : Thriller:50
+INFO:root:Total movies processed for Genre : War:50
+INFO:root:Total movies processed for Genre : Western:50
+INFO:root:All files have been downloaded.
+INFO:root:Processing Completed at 2021-11-24 19:18:38.686739
+
+Process finished with exit code 0
+
+
+2. DB_DataLoad_Certificate_Dim.py
+
+C:\Users\gauri\pythonProject\IMDBRatingProject\venv\Scripts\python.exe C:/Users/gauri/pythonProject/IMDBRatingProject/DB_DataLoad_Certificate_Dim.py
+INFO:root:2021-11-24 19:21:24.675240: Certificate Dim Load Process
+INFO:root:Total rows deleted: 0
+INFO:root:No. of Certificate Rows Inserted : 14
+
+Process finished with exit code 0
+
+
+3. DB_DataLoad_Director_Dim.py
+
+C:\Users\gauri\pythonProject\IMDBRatingProject\venv\Scripts\python.exe C:/Users/gauri/pythonProject/IMDBRatingProject/DB_DataLoad_Director_Dim.py
+INFO:root:2021-11-24 19:21:42.516442: Director Dim Load Process
+INFO:root:Total rows deleted: 0
+INFO:root:No. of Director Rows Inserted : 730
+
+Process finished with exit code 0
+
+
+4. DB_DataLoad_Genre_Dim.py
+
+C:\Users\gauri\pythonProject\IMDBRatingProject\venv\Scripts\python.exe C:/Users/gauri/pythonProject/IMDBRatingProject/DB_DataLoad_Genre_Dim.py
+INFO:root:2021-11-24 19:21:53.339169: Genre Dim Load Process
+INFO:root:Total rows deleted: 0
+INFO:root:No. of Genre Rows Inserted : 24
+
+Process finished with exit code 0
+
+
+5. DB_DataLoad_Fact.py
+
+C:\Users\gauri\pythonProject\IMDBRatingProject\venv\Scripts\python.exe C:/Users/gauri/pythonProject/IMDBRatingProject/DB_DataLoad_Fact.py
+INFO:root:2021-11-24 19:22:19.240583: Fact Load Process
+INFO:root:Total rows deleted: 0
+INFO:root:No. of Fact Rows Inserted : 1200
+
+Process finished with exit code 0

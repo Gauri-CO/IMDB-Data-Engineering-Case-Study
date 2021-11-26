@@ -1,9 +1,9 @@
-
 import psycopg2
 import csv
 import logging
 from datetime import datetime
 import gzip
+import yaml
 
 # Control logging levels:
 logging.basicConfig(level=logging.INFO)
@@ -13,9 +13,28 @@ conn = None
 certificate_rows_deleted = 0
 certificate_rows_inserted = 0
 
+
+# Read config.yaml file for extracting connection parameters
+def load_config():
+    with open("config.yaml", "r") as yamlfile:
+        try:
+            return yaml.load(yamlfile, Loader=yaml.FullLoader)
+        except yaml.YAMLError as e:
+            logging.error(f"Error : {e}")
+
+
 try:
+
+    # Extract the database connection parameters from config.yaml file
+    config = load_config()
+    host = config[0]["host"]
+    port = config[0]["port"]
+    dbname = config[0]["dbname"]
+    user = config[0]["user"]
+    password = config[0]["password"]
+
     # Connecting to Postgresql
-    conn = psycopg2.connect("host='localhost' port='5432' dbname='postgres' user='postgres' password='Raju#12345'")
+    conn = psycopg2.connect(f"host={host} port={port} dbname={dbname} user={user} password={password}")
     cur = conn.cursor()
 
     # Delete if any records exists in certificate_dim table for complete refresh of data
@@ -32,7 +51,6 @@ try:
 
         try:
             for row in certificate_reader:
-
                 cur.execute(
                     "INSERT INTO certificate_dim values (%s,%s)", row
                 )

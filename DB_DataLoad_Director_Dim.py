@@ -3,6 +3,7 @@ import csv
 import logging
 from datetime import datetime
 import gzip
+import yaml
 
 # Control logging levels:
 logging.basicConfig(level=logging.INFO)
@@ -16,9 +17,28 @@ dir_rows_inserted = 0
 date = str(datetime.now())[0:11].replace("-", "")
 tm_id = int(date)
 
+
+# Read config.yaml file for extracting connection parameters
+def load_config():
+    with open("config.yaml", "r") as yamlfile:
+        try:
+            return yaml.load(yamlfile, Loader=yaml.FullLoader)
+        except yaml.YAMLError as e:
+            logging.error(f"Error : {e}")
+
+
 try:
+    # Extract the database connection parameters from config.yaml file
+    config = load_config()
+    host = config[0]["host"]
+    port = config[0]["port"]
+    dbname = config[0]["dbname"]
+    user = config[0]["user"]
+    password = config[0]["password"]
+
     # Connecting to Postgresql
-    conn = psycopg2.connect("host='localhost' port='5432' dbname='postgres' user='postgres' password='Raju#12345'")
+
+    conn = psycopg2.connect(f"host={host} port={port} dbname={dbname} user={user} password={password}")
     cur = conn.cursor()
 
     # Delete if any records exists in director_dim table for complete refresh of data

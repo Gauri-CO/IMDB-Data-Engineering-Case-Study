@@ -1,0 +1,18 @@
+C:\Users\gauri\pythonProject\IMDBRatingProject\venv\Scripts\python.exe C:/Users/gauri/pythonProject/IMDBRatingProject/Validation.py
+INFO:root:### File Check Validation ###
+INFO:root:genre_data.csv.gz  File Exists!!
+INFO:root:fact_movies_data.csv.gz  File Exists!!
+INFO:root:director_data.csv.gz  File Exists!!
+INFO:root:certificate_data.csv.gz  File Exists!!
+INFO:root:imdb_movies_stage_data.csv.gz  File Exists!!
+INFO:root:### Count Check Validation ###
+INFO:root:1200 and 1200
+INFO:root:imdb_movies_fact and fact_movies_data.csv.gz match
+INFO:root:14 and 14
+INFO:root:certificate_dim and certificate_data.csv.gz match
+INFO:root:24 and 24
+INFO:root:genre_dim and genre_data.csv.gz match
+INFO:root:728 and 728
+INFO:root:director_dim and director_data.csv.gz match
+
+Process finished with exit code 0
